@@ -1,0 +1,82 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Metrics {
+  id                                         Int      @id @default(autoincrement())
+  iso_code                                   String?
+  continent                                  String?
+  location                                   String?
+  date                                       String?
+  total_cases                                Decimal? @db.Decimal(17, 2)
+  new_cases                                  Decimal? @db.Decimal(17, 2)
+  new_cases_smoothed                         Decimal? @db.Decimal(17, 2)
+  total_deaths                               Decimal? @db.Decimal(17, 2)
+  new_deaths                                 Decimal? @db.Decimal(17, 2)
+  new_deaths_smoothed                        Decimal? @db.Decimal(17, 2)
+  total_cases_per_million                    Decimal? @db.Decimal(17, 2)
+  new_cases_per_million                      Decimal? @db.Decimal(17, 2)
+  new_cases_smoothed_per_million             Decimal? @db.Decimal(17, 2)
+  total_deaths_per_million                   Decimal? @db.Decimal(17, 2)
+  new_deaths_per_million                     Decimal? @db.Decimal(17, 2)
+  new_deaths_smoothed_per_million            Decimal? @db.Decimal(17, 2)
+  reproduction_rate                          Decimal? @db.Decimal(17, 2)
+  icu_patients                               Decimal? @db.Decimal(17, 2)
+  icu_patients_per_million                   Decimal? @db.Decimal(17, 2)
+  hosp_patients                              Decimal? @db.Decimal(17, 2)
+  hosp_patients_per_million                  Decimal? @db.Decimal(17, 2)
+  weekly_icu_admissions                      Decimal? @db.Decimal(17, 2)
+  weekly_icu_admissions_per_million          Decimal? @db.Decimal(17, 2)
+  weekly_hosp_admissions                     Decimal? @db.Decimal(17, 2)
+  weekly_hosp_admissions_per_million         Decimal? @db.Decimal(17, 2)
+  total_tests                                Decimal? @db.Decimal(17, 2)
+  new_tests                                  Decimal? @db.Decimal(17, 2)
+  total_tests_per_thousand                   Decimal? @db.Decimal(17, 2)
+  new_tests_per_thousand                     Decimal? @db.Decimal(17, 2)
+  new_tests_smoothed                         Decimal? @db.Decimal(17, 2)
+  new_tests_smoothed_per_thousand            Decimal? @db.Decimal(17, 2)
+  positive_rate                              Decimal? @db.Decimal(17, 2)
+  tests_per_case                             Decimal? @db.Decimal(17, 2)
+  tests_units                                String?
+  total_vaccinations                         Decimal? @db.Decimal(17, 2)
+  people_vaccinated                          Decimal? @db.Decimal(17, 2)
+  people_fully_vaccinated                    Decimal? @db.Decimal(17, 2)
+  total_boosters                             Decimal? @db.Decimal(17, 2)
+  new_vaccinations                           Decimal? @db.Decimal(17, 2)
+  new_vaccinations_smoothed                  Decimal? @db.Decimal(17, 2)
+  total_vaccinations_per_hundred             Decimal? @db.Decimal(17, 2)
+  people_vaccinated_per_hundred              Decimal? @db.Decimal(17, 2)
+  people_fully_vaccinated_per_hundred        Decimal? @db.Decimal(17, 2)
+  total_boosters_per_hundred                 Decimal? @db.Decimal(17, 2)
+  new_vaccinations_smoothed_per_million      Decimal? @db.Decimal(17, 2)
+  new_people_vaccinated_smoothed             Decimal? @db.Decimal(17, 2)
+  new_people_vaccinated_smoothed_per_hundred Decimal? @db.Decimal(17, 2)
+  stringency_index                           Decimal? @db.Decimal(17, 2)
+  population_density                         Decimal? @db.Decimal(17, 2)
+  median_age                                 Decimal? @db.Decimal(17, 2)
+  aged_65_older                              Decimal? @db.Decimal(17, 2)
+  aged_70_older                              Decimal? @db.Decimal(17, 2)
+  gdp_per_capita                             Decimal? @db.Decimal(17, 2)
+  extreme_poverty                            Decimal? @db.Decimal(17, 2)
+  cardiovasc_death_rate                      Decimal? @db.Decimal(17, 2)
+  diabetes_prevalence                        Decimal? @db.Decimal(17, 2)
+  female_smokers                             Decimal? @db.Decimal(17, 2)
+  male_smokers                               Decimal? @db.Decimal(17, 2)
+  handwashing_facilities                     Decimal? @db.Decimal(17, 2)
+  hospital_beds_per_thousand                 Decimal? @db.Decimal(17, 2)
+  life_expectancy                            Decimal? @db.Decimal(17, 2)
+  human_development_index                    Decimal? @db.Decimal(17, 2)
+  population                                 Decimal? @db.Decimal(17, 2)
+  excess_mortality_cumulative_absolute       Decimal? @db.Decimal(17, 2)
+  excess_mortality_cumulative                Decimal? @db.Decimal(17, 2)
+  excess_mortality                           Decimal? @db.Decimal(17, 2)
+  excess_mortality_cumulative_per_million    Decimal? @db.Decimal(17, 2)
+}
